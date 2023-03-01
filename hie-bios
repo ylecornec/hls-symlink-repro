@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+hie_bios_flags() {
+  echo "-isubdir_alias"
+  echo "Main.hs"
+  echo "subdir/Lib.hs"
+}
+if [[ -z "${HIE_BIOS_OUTPUT-}" ]]; then
+  hie_bios_flags
+else
+  hie_bios_flags >"$HIE_BIOS_OUTPUT"
+fi
